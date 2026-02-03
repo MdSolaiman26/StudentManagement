@@ -19,15 +19,20 @@ public class Main {
         System.out.print("Enter choice: ");
 
         choice = sc.nextInt();
+        sc.nextLine();
 
         switch (choice) {
             case 1:
                 System.out.print("Enter ID: ");
-                int id = sc.nextInt();
-                sc.nextLine();
+                String id = sc.nextLine();
 
                 System.out.print("Enter Name: ");
                 String name = sc.nextLine();
+
+                if (id.isEmpty() || name.isEmpty()) {
+                    System.out.println("ID and Name cannot be empty!");
+                    return;
+                }
 
                 System.out.print("Enter Age: ");
                 int age = sc.nextInt();
@@ -38,15 +43,16 @@ public class Main {
 
                 service.addStudent(new Student(id, name, age, dept));
                 break;
+                
             case 2:
                 System.out.print("Enter ID to update: ");
-                int removeId = sc.nextInt();
+                String removeId = sc.nextLine();
                 service.removeStudent(removeId);
                 break;
 
             case 3:
                 System.out.print("Enter ID to update: ");
-                int updateId = sc.nextInt();
+                String updateId = sc.nextLine();
                 sc.nextLine();
 
                 System.out.print("Enter new Name: ");
